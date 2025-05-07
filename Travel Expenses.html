@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)file:///C:/Users/BD-MILON%20SHEIKH/Downloads/Travel%20Bill%20Form.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Expenses</title>
+  <style>
+    @page {
+      size: A4;
+      margin:5mm;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      max-width: 100%;
+      margin: auto;
+      background-color: #f0f0f0;
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .vip-title {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-weight: 900;
+      font-size: 28px;
+      color: #000;
+    }
+    .form-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .form-row label {
+      width: 200px;
+      font-weight: bold;
+    }
+    .form-row input {
+      flex: 1;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
+    }
+    input[type="number"], input[type="text"] {
+      width: 30%; /* Amount (৳) ঘর ছোট করার জন্য */
+      box-sizing: border-box;
+    }
+    .expense-description input[type="text"] {
+      width: 102%; /* Expense Description ঘর 60% বড় করা হয়েছে */
+    }
+    #total {
+      background-color: #e0ffe0;
+      font-weight: bold;
+      color: #000;
+    }
+    .signature {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .signature div {
+      text-align: center;
+      width: 45%;
+    }
+    .button-container {
+      margin-top: 30px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .print-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+    .calc-btn {
+      background-color: #2196F3;
+      color: white;
+    }
+    @media print {
+      .button-container {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- VIP-BD লেখা বড় ও বোল্ড -->
+  <div class="vip-title">VIP-BD</div>
+
+  <h2>Travel Bill Form</h2>
+
+  <div class="form-row">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+  </div>
+
+  <div class="form-row">
+    <label for="designation">Designation:</label>
+    <input type="text" id="designation" name="designation">
+  </div>
+
+  <div class="form-row">
+    <label for="employee">Employee ID:</label>
+    <input type="text" id="employee" name="employee">
+  </div>
+
+  <div class="form-row">
+    <label for="location">Travel Location:</label>
+    <input type="text" id="location" name="location">
+  </div>
+
+  <div class="form-row">
+    <label for="dates">Travel Dates:</label>
+    <input type="date" id="fromDate">to<input type="date" id="toDate">
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>SL</th>
+        <th>Expense Description</th>
+        <th>Amount (৳)</th>
+        <th>Remarks</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="expense-description"><td>1</td><td><input type="text"></td><td><input type="number" id="amt1" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks1"></td></tr>
+      <tr class="expense-description"><td>2</td><td><input type="text"></td><td><input type="number" id="amt2" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks2"></td></tr>
+      <tr class="expense-description"><td>3</td><td><input type="text"></td><td><input type="number" id="amt3" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks3"></td></tr>
+      <tr class="expense-description"><td>4</td><td><input type="text"></td><td><input type="number" id="amt4" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks4"></td></tr>
+      <tr class="expense-description"><td>5</td><td><input type="text"></td><td><input type="number" id="amt5" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks5"></td></tr>
+      <tr class="expense-description"><td>6</td><td><input type="text"></td><td><input type="number" id="amt6" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks6"></td></tr>
+      <tr class="expense-description"><td>7</td><td><input type="text"></td><td><input type="number" id="amt7" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks7"></td></tr>
+      <tr class="expense-description"><td>8</td><td><input type="text"></td><td><input type="number" id="amt8" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks8"></td></tr>
+      <tr class="expense-description"><td>9</td><td><input type="text"></td><td><input type="number" id="amt9" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks9"></td></tr>
+      <tr class="expense-description"><td>10</td><td><input type="text"></td><td><input type="number" id="amt10" min="0" oninput="calculateTotal()"></td><td><input type="text" id="remarks10"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="form-row" style="margin-top: 30px;">
+    <label for="total" style="font-weight:bold;">Total Amount (৳):</label>
+    <input type="number" id="total" readonly="">
+  </div>
+
+  <div class="signature">
+    <div>
+      <p>Submitted by</p>
+    </div>
+    <div>
+      <p>Checked By Head Of D&amp;D</p>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="calc-btn" onclick="calculateTotal()">Calculate Total</button>
+    <button class="print-btn" onclick="window.print()">Print</button>
+  </div>
+
+  <script>
+    function calculateTotal() {
+      let total = 0;
+      for (let i = 1; i <= 10; i++) {
+        const value = parseFloat(document.getElementById(`amt${i}`).value) || 0;
+        total += value;
+      }
+      document.getElementById("total").value = total.toFixed(2);
+    }
+
+    window.onload = calculateTotal;
+  </script>
+
+
+
+</body></html>
